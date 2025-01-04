@@ -1,0 +1,31 @@
+{
+  "name": "shelter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve ",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AzizShik/Shelter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AzizShik/Shelter/issues"
+  },
+  "homepage": "https://github.com/AzizShik/Shelter#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "html-bundler-webpack-plugin": "^4.11.1",
+    "sass": "^1.83.1",
+    "sass-loader": "^16.0.4",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  }
+}
