@@ -6,6 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    assetModuleFilename: 'assets/images/[name][ext]',
   },
 
   plugins: [
@@ -15,10 +16,10 @@ module.exports = {
         index: 'src/index.html', // save generated HTML into dist/index.html
       },
       js: {
-        filename: 'js/[name].[contenthash:8].js', // JS output filename
+        filename: 'js/[name].js', // JS output filename
       },
       css: {
-        filename: 'css/[name].[contenthash:8].css', // CSS output filename
+        filename: 'css/[name].css', // CSS output filename
       },
     }),
   ],
@@ -30,8 +31,15 @@ module.exports = {
         use: ['css-loader', 'sass-loader'],
       },
       {
-        test: /\.(ico|png|jp?g|svg)/,
+        test: /\.(ico|png|jp?g)/,
         type: 'asset/resource',
+      },
+      {
+        test: /\.svg$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/icons/[name].svg',
+        },
       },
     ],
   },
@@ -43,7 +51,7 @@ module.exports = {
     watchFiles: {
       paths: ['src/**/*.*'],
       options: {
-        // usePolling: true,
+        usePolling: true,
       },
     },
   },
