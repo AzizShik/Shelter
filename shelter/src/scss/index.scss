@@ -1,9 +1,12 @@
 @use '../../node_modules/normalize.css/normalize.css';
 @use './fonts';
 @use './variables' as *;
+@use './common';
+@use './header';
 
 body {
   font-size: 16px;
-  font-family: 'Georgia', serif;
+  font-family: $font-family;
+  background: #000;
   font-weight: 400;
 }
