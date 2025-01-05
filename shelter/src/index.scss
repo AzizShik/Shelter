@@ -1,9 +1,0 @@
-@use '../node_modules/normalize.css/normalize.css';
-@use './styles/fonts';
-@use './styles/variables' as *;
-
-body {
-  font-size: 16px;
-  font-family: 'Georgia', serif;
-  font-weight: 400;
-}
