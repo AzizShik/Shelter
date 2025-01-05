@@ -1,10 +1,9 @@
+@use '../node_modules/normalize.css/normalize.css';
 @use './styles/fonts';
+@use './styles/variables' as *;
 
 body {
-  background: #000;
-  color: #fff;
   font-size: 16px;
   font-family: 'Georgia', serif;
-  font-family: 'Arial', serif;
   font-weight: 400;
 }
