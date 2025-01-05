@@ -1,0 +1,42 @@
+@use './variables' as *;
+
+.not-only {
+  padding-top: 180px;
+  background: url('../assets/images/noise_transparent@2x.png'),
+    radial-gradient(
+      237.5% 111.8% at 0% 0%,
+      rgb(91, 72, 58) 0%,
+      rgb(38, 36, 37) 100%
+    );
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info {
+    padding-top: 163px;
+    width: 100%;
+    max-width: 460px;
+  }
+
+  &__title {
+    font-size: 44px;
+    line-height: 130%;
+    color: $color-light-xl;
+    max-width: 310px;
+    width: 100%;
+  }
+
+  &__descr {
+    font-family: $second-family;
+    font-size: 15px;
+    line-height: 160%;
+    color: $color-dark-s;
+    margin-top: 42px;
+  }
+
+  &__btn {
+    margin-top: 42px;
+  }
+}

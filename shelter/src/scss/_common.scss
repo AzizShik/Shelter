@@ -1,3 +1,4 @@
+@use './variables' as *;
 .container {
   max-width: 1200px;
   padding-left: 40px;
@@ -13,4 +14,46 @@ ul {
 
 a {
   text-decoration: none;
+  display: inline-block;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  outline: none;
+  background: inherit;
+  border: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+.btn {
+  padding: 15px 45px;
+  background: $color-primary;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: $color-dark-3xl;
+  border-radius: 100px;
+  transition: all .3s ease;
+}
+
+.btn--card {
+  border: 2px solid $color-primary;
+  border-radius: 100px;
+  background: transparent;
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    background: $color-primary-light;
+  }
 }
