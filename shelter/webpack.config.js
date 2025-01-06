@@ -160,7 +160,7 @@ module.exports = {
     open: true,
     port: 8080,
 
-    historyApiFallback: true,
+    historyApiFallback: false,
     static: path.resolve(__dirname, 'dist'),
     watchFiles: {
       paths: ['src/**/*.*'],

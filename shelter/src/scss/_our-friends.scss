@@ -1,0 +1,55 @@
+@use './variables' as *;
+
+.our-friends {
+  background: $color-light-l;
+  &__title {
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  &__wrapper {
+    margin-top: 60px;
+    position: relative;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0;
+    top: calc(50% - 26px);
+    transform: translateY(-50%);
+    display: flex;
+  }
+
+  .our-friends__control {
+    svg {
+      path {
+        fill: $color-dark-3xl;
+      }
+    }
+  }
+
+  .our-friends__control--prev {
+  }
+
+  .our-friends__control--next {
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 990px;
+    margin: 0 auto;
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+  }
+}
