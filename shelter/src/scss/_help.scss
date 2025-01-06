@@ -1,0 +1,35 @@
+@use './variables' as *;
+
+.help {
+  &__title {
+    max-width: 310px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  &__inner {
+    margin: 0 auto;
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 55px 120px;
+    max-width: 1030px;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    &-title {
+      font-size: 20px;
+      line-height: 115%;
+      letter-spacing: 0.06em;
+      text-align: center;
+      color: $color-dark-l;
+    }
+  }
+}
