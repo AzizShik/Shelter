@@ -7,9 +7,4 @@
 @use './about';
 @use './our-friends';
 @use './help';
-
-body {
-  font-size: 16px;
-  font-family: $font-family;
-  font-weight: 400;
-}
+@use './in-addition';

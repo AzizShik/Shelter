@@ -30,6 +30,17 @@ img {
   vertical-align: top;
 }
 
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-size: 16px;
+  font-family: $font-family;
+  font-weight: 400;
+}
+
 .container {
   max-width: 1200px;
   padding-left: 40px;
@@ -94,7 +105,7 @@ img {
   border-radius: 9px;
   max-width: 270px;
   width: 100%;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .card__title {

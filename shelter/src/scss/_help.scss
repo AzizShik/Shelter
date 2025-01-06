@@ -1,6 +1,7 @@
 @use './variables' as *;
 
 .help {
+  background: $color-light-xl;
   &__title {
     max-width: 310px;
     width: 100%;
