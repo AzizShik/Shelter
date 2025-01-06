@@ -159,12 +159,13 @@ module.exports = {
   devServer: {
     open: true,
     port: 8080,
+
     historyApiFallback: true,
     static: path.resolve(__dirname, 'dist'),
     watchFiles: {
       paths: ['src/**/*.*'],
       options: {
-        usePolling: true,
+        usePolling: false,
       },
     },
   },

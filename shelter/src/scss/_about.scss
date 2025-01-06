@@ -1,0 +1,31 @@
+@use './variables' as *;
+
+.about {
+  background: $color-light-xl;
+
+  .about__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .about__content {
+    max-width: 430px;
+    width: 100%;
+  }
+
+  &__title {
+    max-width: 380px;
+  }
+
+  &__descr {
+    font-family: $second-family;
+    font-size: 15px;
+    line-height: 160%;
+    color: $color-dark-xl;
+    margin-top: 25px;
+  }
+}
