@@ -30,8 +30,26 @@ module.exports = {
           // output dist/index.html
           import: './src/views/pages/index.hbs',
           data: {
-            title: 'Breaking Bad',
-            people: ['Walter White', 'Jesse Pinkman'],
+            logoHref: 'javascript:void(0)',
+            aboutHref: 'javascript:void(0)',
+            petsHref: './pages/pets.html',
+            helpHref: '#help',
+            aboutActive: 'header__link--active',
+            petsActive: '',
+            headerPets: '',
+          },
+        },
+        pets: {
+          import: './src/views/pages/pets.hbs',
+          filename: 'pages/pets.html',
+          data: {
+            logoHref: '../index.html',
+            aboutHref: '../index.html',
+            petsHref: 'javascript:void(0)',
+            helpHref: '../index.html#help',
+            aboutActive: '',
+            petsActive: 'header__link--active',
+            headerPets: 'header--pets',
           },
         },
       },

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="@icons/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="@icons/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="@styles/pets.scss">
+  <script src="@scripts/pets.js" defer></script>
+  <title>Pets</title>
+</head>
+
+<body>
+
+  {{> header }}
+
+
+  <main class="main">
+    <section class="our-friends section">
+      <div class="container">
+        <h1 class="our-friends__title title">
+          Our friends who
+          are&nbsp;looking for a house
+        </h1>
+        <div class="our-friends__inner">
+          <div class="our-friends__item card">
+            <picture>
+              <source srcset="../../assets/images/pets-katrine.png?as=avif" type="image/avif">
+              <source srcset="../../assets/images/pets-katrine.png?as=webp" type="image/webp">
+              <img src="../../assets/images/pets-katrine.png" class="our-friends__item-img card__img" width="270"
+                height="270" alt="Pet" loading="lazy">
+            </picture>
+            <h3 class="our-friends__item-title card__title ">Katrine</h3>
+            <button class="our-friends__item-btn card__btn btn btn--card">Learn more</button>
+          </div>
+          <div class="our-friends__item card">
+            <picture>
+              <source srcset="../../assets/images/pets-jennifer.png?as=avif" type="image/avif">
+              <source srcset="../../assets/images/pets-jennifer.png?as=webp" type="image/webp">
+              <img src="../../assets/images/pets-jennifer.png" class="our-friends__item-img card__img" width="270"
+                height="270" alt="Pet" loading="lazy">
+            </picture>
+            <h3 class="our-friends__item-title card__title ">Jennifer</h3>
+            <button class="our-friends__item-btn card__btn btn btn--card">Learn more</button>
+          </div>
+          <div class="our-friends__item card">
+            <picture>
+              <source srcset="../../assets/images/pets-woody.png?as=avif" type="image/avif">
+              <source srcset="../../assets/images/pets-woody.png?as=webp" type="image/webp">
+              <img src="../../assets/images/pets-woody.png" class="our-friends__item-img card__img" width="270"
+                height="270" alt="Pet" loading="lazy">
+            </picture>
+            <h3 class="our-friends__item-title card__title ">Woody</h3>
+            <button class="our-friends__item-btn card__btn btn btn--card">Learn more</button>
+          </div>
+          <div class="our-friends__item card">
+            <picture>
+              <source srcset="../../assets/images/pets-sophia.png?as=avif" type="image/avif">
+              <source srcset="../../assets/images/pets-sophia.png?as=webp" type="image/webp">
+              <img src="../../assets/images/pets-sophia.png" class="our-friends__item-img card__img" width="270"
+                height="270" alt="Pet" loading="lazy">
+            </picture>
+            <h3 class="our-friends__item-title card__title ">Sophia</h3>
+            <button class="our-friends__item-btn card__btn btn btn--card">Learn more</button>
+          </div>
+          <div class="our-friends__item card">
+            <picture>
+              <source srcset="../../assets/images/pets-timmy.png?as=avif" type="image/avif">
+              <source srcset="../../assets/images/pets-timmy.png?as=webp" type="image/webp">
+              <img src="../../assets/images/pets-timmy.png" class="our-friends__item-img card__img" width="270"
+                height="270" alt="Pet" loading="lazy">
+            </picture>
+            <h3 class="our-friends__item-title card__title ">Timmy</h3>
+            <button class="our-friends__item-btn card__btn btn btn--card">Learn more</button>
+          </div>
+          <div class="our-friends__item card">
+            <picture>
+              <source srcset="../../assets/images/pets-charly.png?as=avif" type="image/avif">
+              <source srcset="../../assets/images/pets-charly.png?as=webp" type="image/webp">
+              <img src="../../assets/images/pets-charly.png" class="our-friends__item-img card__img" width="270"
+                height="270" alt="Pet" loading="lazy">
+            </picture>
+            <h3 class="our-friends__item-title card__title ">Charly</h3>
+            <button class="our-friends__item-btn card__btn btn btn--card">Learn more</button>
+          </div>
+          <div class="our-friends__item card">
+            <picture>
+              <source srcset="../../assets/images/pets-scarlet.png?as=avif" type="image/avif">
+              <source srcset="../../assets/images/pets-scarlet.png?as=webp" type="image/webp">
+              <img src="../../assets/images/pets-scarlet.png" class="our-friends__item-img card__img" width="270"
+                height="270" alt="Pet" loading="lazy">
+            </picture>
+            <h3 class="our-friends__item-title card__title ">Scarlett</h3>
+            <button class="our-friends__item-btn card__btn btn btn--card">Learn more</button>
+          </div>
+          <div class="our-friends__item card">
+            <picture>
+              <source srcset="../../assets/images/pets-freddie.png?as=avif" type="image/avif">
+              <source srcset="../../assets/images/pets-freddie.png?as=webp" type="image/webp">
+              <img src="../../assets/images/pets-freddie.png" class="our-friends__item-img card__img" width="270"
+                height="270" alt="Pet" loading="lazy">
+            </picture>
+            <h3 class="our-friends__item-title card__title ">Freddie</h3>
+            <button class="our-friends__item-btn card__btn btn btn--card">Learn more</button>
+          </div>
+        </div>
+        <div class="our-friends__controls">
+          <button
+            class="our-friends__control our-friends__control--disabled  btn btn--control our-friends__control--first">&lt;&lt;</button>
+          <button
+            class="our-friends__control our-friends__control--disabled  btn btn--control our-friends__control--prev">&lt;</button>
+          <span class="our-friends__control our-friends__control--current-page btn btn--control">1</span>
+          <button class="our-friends__control btn btn--control our-friends__control--next">&gt;</button>
+          <button class="our-friends__control btn btn--control our-friends__control--last">&gt;&gt;</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  {{> footer}}
+
+
+</body>
+
+</html>

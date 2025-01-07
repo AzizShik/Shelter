@@ -1,0 +1,57 @@
+@use '../../node_modules/normalize.css/normalize.css';
+@use './fonts';
+@use './variables' as *;
+@use './common';
+@use './header';
+@use './footer';
+
+.our-friends {
+  padding-top: 200px;
+  background: $color-light-l;
+
+  &__title {
+    max-width: 420px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__inner {
+    margin-top: 59px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px 40px;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 340px;
+    height: 52px;
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+
+  &__control {
+    width: 52px;
+    height: 52px;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    text-align: center;
+    color: $color-dark-3xl;
+  }
+
+  &__control--disabled {
+    border: 2px solid $color-dark-s;
+    color: $color-dark-s;
+    pointer-events: none;
+  }
+
+  &__control--current-page {
+    background: $color-primary;
+    pointer-events: none;
+  }
+}

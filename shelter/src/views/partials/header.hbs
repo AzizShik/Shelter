@@ -1,25 +1,25 @@
-<header class='header'>
+<header class='header {{ headerPets }}'>
   <div class='container'>
     <div class='header__inner'>
-      <a href="index.html" class='header__logo'>
+      <a href={{ logoHref }} class='header__logo'>
         <span class='header__logo-title'>Cozy House</span>
         <span class='header__logo-descr'>Shelter for pets in Boston</span>
       </a>
       <nav class='header__nav'>
         <ul class='header__list'>
           <li class='header__item'>
-            <a href='#about' class='header__link header__link--active'>
+            <a href={{ aboutHref }} class='header__link {{ aboutActive }}'>
               About the shelter
             </a>
           </li>
           <li class='header__item'>
-            <a href='#' class='header__link'>Our pets</a>
+            <a href={{ petsHref }} class='header__link {{ petsActive }}'>Our pets</a>
           </li>
           <li class='header__item'>
-            <a href='#help' class='header__link'>Help the shelter</a>
+            <a href={{ helpHref }} class='header__link'>Help the shelter</a>
           </li>
           <li class='header__item'>
-            <a href='#footer' class='header__link'>Contacts</a>
+            <a href='#contacts' class='header__link'>Contacts</a>
           </li>
         </ul>
       </nav>
