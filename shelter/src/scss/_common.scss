@@ -1,5 +1,6 @@
 @use './variables' as *;
 @use 'sass:color';
+@use './adaptive-func' as *;
 
 * {
   box-sizing: border-box;
@@ -128,7 +129,7 @@ body {
   display: block;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
   .container {
     padding: 0 30px;
   }
@@ -137,6 +138,25 @@ body {
 @media (max-width: 767px) {
   .container {
     padding: 0 20px;
+  }
+
+  .title {
+    font-size: adaptive(25, 35, 320, 767);
+  }
+
+  .title--main {
+    font-size: adaptive(25, 44, 320, 767);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .title--main {
+    letter-spacing: 0.06em;
+    text-align: center;
   }
 }
 

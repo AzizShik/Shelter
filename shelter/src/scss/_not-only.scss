@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './adaptive-func' as *;
 
 .not-only {
   padding-top: 180px;
@@ -10,14 +11,18 @@
     );
 
   &__inner {
+    // min-height: 728px;
     display: flex;
     justify-content: space-between;
+    gap: 26px;
   }
 
   &__info {
-    padding-top: 163px;
+    flex-shrink: 1;
     width: 100%;
     max-width: 460px;
+    padding-top: 163px;
+    padding-bottom: 163px;
   }
 
   &__title {
@@ -35,5 +40,85 @@
 
   &__btn {
     margin-top: 42px;
+  }
+
+  &__img-block {
+    align-self: flex-end;
+    flex-shrink: 0;
+    max-width: 698px;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 1150px) {
+    & {
+      padding-top: adaptive(120, 180, 991, 1150);
+    }
+
+    &__info {
+      max-width: 370px;
+    }
+
+    &__img-block {
+      flex-shrink: 1;
+    }
+  }
+
+  @media (max-width: 991px) {
+    & {
+      padding-top: 150px;
+    }
+
+    &__inner {
+      flex-direction: column;
+      gap: 100px;
+    }
+
+    &__info {
+      max-width: 460px;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__btn {
+      align-self: center;
+    }
+
+    &__img-block {
+      max-width: adaptive(569, 650, 768, 991);
+    }
+  }
+
+  @media (max-width: 767px) {
+    &__img-block {
+      align-self: flex-end;
+      max-width: adaptive(260, 569, 320, 767);
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__inner {
+      gap: 105px;
+    }
+
+    &__title {
+      max-width: 220px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    &__descr {
+      margin-inline: auto;
+      text-align: center;
+    }
   }
 }
