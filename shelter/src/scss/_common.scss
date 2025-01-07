@@ -140,6 +140,10 @@ body {
     padding: 0 20px;
   }
 
+  .section {
+    padding-top: adaptive(42, 80, 320, 767);
+  }
+
   .title {
     font-size: adaptive(25, 35, 320, 767);
   }

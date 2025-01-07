@@ -1,9 +1,10 @@
 @use './variables' as *;
+@use './adaptive-func' as *;
 
 .about {
   background: $color-light-xl;
 
-  .about__inner {
+  &__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,7 +13,7 @@
     margin: 0 auto;
   }
 
-  .about__content {
+  &__content {
     max-width: 430px;
     width: 100%;
   }
@@ -27,5 +28,49 @@
     line-height: 160%;
     color: $color-dark-xl;
     margin-top: 25px;
+  }
+
+  &__img-block {
+    max-width: 300px;
+    width: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 991px) {
+    &__inner {
+      gap: 60px;
+    }
+
+    &__content {
+      flex-shrink: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__inner {
+      flex-direction: column-reverse;
+      gap: adaptive(14, 80, 320, 767);
+    }
+
+    &__title {
+      text-align: center;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    &__descr {
+      max-width: 270px;
+      margin-inline: auto;
+      text-align: justify;
+      margin-top: 23px;
+    }
+
+    &__img-block {
+      max-width: adaptive(260, 300, 320, 768);
+    }
   }
 }
