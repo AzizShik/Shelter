@@ -9,6 +9,8 @@
   height: 120px;
   padding-top: 30px;
 
+  background: #000;
+
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -95,6 +97,32 @@
     color: $color-light-s;
   }
 
+  &__burger {
+    width: 30px;
+    height: 21px;
+    flex-direction: column;
+    gap: 10px;
+
+    display: none;
+  }
+
+  &__burger-line {
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background: $color-primary;
+  }
+
+  @media (max-width: 767px) {
+    &__nav {
+      display: none;
+    }
+
+    &__burger {
+      display: flex;
+    }
+  }
+
   @media (hover: hover) {
     &__logo:hover .header__logo-descr {
       color: $color-primary;
@@ -134,7 +162,7 @@
     }
 
     .header__link:active {
-      color: color.scale($color-dark-3xl, $lightness: 15%)
+      color: color.scale($color-dark-3xl, $lightness: 15%);
     }
   }
 }
