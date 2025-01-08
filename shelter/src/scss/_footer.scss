@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './adaptive-func' as *;
 
 .footer {
   padding-top: 40px;
@@ -75,7 +76,7 @@
       margin: 0 auto;
     }
 
-    .footer__item:nth-child(2) {
+    &__item:nth-child(2) {
       max-width: 302px;
     }
 
@@ -88,6 +89,54 @@
     &__item-img {
       display: block;
       margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 660px) {
+    &__inner {
+      max-width: 300px;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__inner {
+      max-width: 300px;
+      gap: 21px;
+    }
+
+    &__inner .footer__item {
+      max-width: 300px;
+    }
+
+    &__item-title {
+      font-size: adaptive(25, 35, 320, 480);
+      text-align: center;
+    }
+
+    &__item-title {
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    &__item-link {
+      justify-content: center;
+    }
+
+    .footer__item:nth-child(2) .footer__item-link {
+      margin-top: 39px;
+      justify-content: flex-start;
+    }
+
+    &__item:nth-child(3) {
+      margin-top: 22px;
+    }
+
+    &__item-img {
+      max-width: adaptive(260, 300, 320, 480);
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
   }
 }
