@@ -94,7 +94,7 @@
 
   &__burger {
     width: 30px;
-    height: 21px;
+    height: 22px;
     flex-direction: column;
     justify-content: space-between;
 
@@ -156,6 +156,10 @@
 
   .header__link--active {
     color: $color-dark-3xl;
+  }
+
+  .header__burger-line {
+    background: #000;
   }
 
   @media (hover: hover) {
