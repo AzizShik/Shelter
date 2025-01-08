@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './adaptive-func' as *;
 
 .in-addition {
   background: $color-light-l;
@@ -70,6 +71,47 @@
     &__inner {
       gap: 60px;
       flex-direction: column-reverse;
+    }
+  }
+
+  @media (max-width: 767px) {
+    &__btn {
+      font-size: adaptive(15, 20, 320, 767);
+    }
+
+    &__img-block {
+      max-width: adaptive(260, 505, 320, 767);
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__inner {
+      gap: 43px;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &__subtitle {
+      letter-spacing: 0;
+    }
+
+    &__descr {
+      text-align: justify;
+      max-width: 280px;
+    }
+
+    &__btn {
+      margin-top: 24px;
+      font-size: 15px;
     }
   }
 }
