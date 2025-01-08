@@ -12,7 +12,6 @@
   &__inner {
     display: flex;
     justify-content: space-between;
-    gap: 0px 160px;
   }
 
   &__item {
@@ -48,6 +47,11 @@
   }
 
   &__item:nth-child(2) {
+    max-width: 320px;
+    width: 100%;
+  }
+
+  &__item:nth-child(2) {
     .footer__item-link {
       margin-top: 33px;
     }
@@ -57,5 +61,33 @@
     margin-top: 0;
     max-width: 300px;
     width: 100%;
+  }
+
+  @media (max-width: 1100px) {
+    & {
+      padding-top: 14px;
+    }
+
+    &__inner {
+      gap: 64px 0px;
+      max-width: 640px;
+      flex-wrap: wrap;
+      margin: 0 auto;
+    }
+
+    .footer__item:nth-child(2) {
+      max-width: 302px;
+    }
+
+    &__item:last-child {
+      max-width: 100%;
+      width: 100%;
+      flex-grow: 1;
+    }
+
+    &__item-img {
+      display: block;
+      margin: 0 auto;
+    }
   }
 }
