@@ -2,8 +2,11 @@ const path = require('path');
 const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
+const mode = process.env.NODE_ENV;
+
 module.exports = {
-  mode: 'development',
+  mode: mode,
+  devtool: mode == 'development' ? 'inline-source-map' : false,
 
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -19,8 +22,6 @@ module.exports = {
       '@icons': path.join(__dirname, 'src/assets/icons'),
     },
   },
-
-  devtool: 'inline-source-map',
 
   plugins: [
     new HtmlBundlerPlugin({

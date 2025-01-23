@@ -6,6 +6,7 @@ function header() {
   const headerList = document.querySelector('.header__list');
 
   const animationDuration = 300;
+  let isLocked = false;
 
   header.addEventListener('click', (e) => {
     const el = e.target;
@@ -36,35 +37,50 @@ function header() {
   });
 
   function openHeaderBurger() {
-    body.classList.add('lock');
-    header.classList.add('header--active');
-    headerBurger.classList.add('header__burger--active');
-    headerNav.animate(
-      [{ transform: 'translateX(320px)' }, { transform: 'translateX(0px)' }],
-      {
-        duration: animationDuration,
-        iterations: 1,
-        fill: 'forwards',
-      },
-    );
+    if (!isLocked) {
+      body.classList.add('lock');
+      header.classList.add('header--active');
+      headerBurger.classList.add('header__burger--active');
+      headerNav.animate(
+        [{ transform: 'translateX(320px)' }, { transform: 'translateX(0px)' }],
+        {
+          duration: animationDuration,
+          iterations: 1,
+          fill: 'forwards',
+        },
+      );
+      isLocked = true;
+
+      setTimeout(() => {
+        isLocked = false;
+      }, animationDuration);
+    }
   }
 
   function closeHeaderBurger() {
-    const animation = headerNav.animate(
-      [{ transform: 'translateX(0px)' }, { transform: 'translateX(320px)' }],
-      {
-        duration: animationDuration,
-        iterations: 1,
-        fill: 'forwards',
-      },
-    );
+    if (!isLocked) {
+      const animation = headerNav.animate(
+        [{ transform: 'translateX(0px)' }, { transform: 'translateX(320px)' }],
+        {
+          duration: animationDuration,
+          iterations: 1,
+          fill: 'forwards',
+        },
+      );
 
-    headerBurger.classList.remove('header__burger--active');
-    body.classList.remove('lock');
+      headerBurger.classList.remove('header__burger--active');
+      body.classList.remove('lock');
 
-    animation.addEventListener('finish', (e) => {
-      header.classList.remove('header--active');
-    });
+      animation.addEventListener('finish', (e) => {
+        header.classList.remove('header--active');
+      });
+
+      isLocked = true;
+
+      setTimeout(() => {
+        isLocked = false;
+      }, animationDuration);
+    }
   }
 }
 
