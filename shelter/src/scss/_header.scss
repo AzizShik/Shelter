@@ -45,6 +45,7 @@
   &__nav {
     max-width: 442px;
     width: 100%;
+    transition: all 0.3s ease;
   }
 
   &__list {
@@ -95,10 +96,16 @@
   &__burger {
     width: 30px;
     height: 22px;
+
     flex-direction: column;
     justify-content: space-between;
 
     display: none;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s ease;
   }
 
   &__burger-line {
@@ -109,8 +116,43 @@
   }
 
   @media (max-width: 767px) {
-    &__nav {
+    & {
+      overflow-x: hidden;
+      // display: none;
+    }
+
+    .header__nav {
       display: none;
+
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      max-width: 320px;
+      right: 0px;
+      top: 0;
+      background: $color-dark-3xl;
+    }
+
+    .header__list {
+      max-width: 243px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-direction: column;
+
+      margin-bottom: 90px;
+    }
+
+    .header__link {
+      font-family: $second-family;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 160%;
+      color: $color-light-s;
     }
 
     &__burger {
@@ -121,7 +163,7 @@
   @media (max-width: 480px) {
     & {
       padding-left: 10px;
-      padding-right: 10px;
+      padding-right: 16px;
     }
   }
 
@@ -169,6 +211,41 @@
 
     .header__link:active {
       color: color.scale($color-dark-3xl, $lightness: 15%);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .header--active {
+    height: calc(100% + 90px);
+    width: 100%;
+    background: rgba(41, 41, 41, 0.6);
+
+    .header__nav {
+      display: flex;
+    }
+  }
+
+  .header__burger--active {
+    transform: rotate(90deg);
+    margin-right: -4px;
+    margin-top: -12px;
+  }
+
+  .header--pets.header--active {
+    background: rgba(255, 255, 255, 0.6);
+
+    .header__nav {
+      background: $color-light-xl;
+      color: #000;
+    }
+
+    .header__link {
+      font-family: $second-family;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 160%;
+      // color: $color-light;
     }
   }
 }
