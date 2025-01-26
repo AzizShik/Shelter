@@ -14,6 +14,27 @@ function carousel() {
   let isPrevClickedTwice = false;
   let isLocked = false;
 
+  const twoItemsPerPage1024 = 1024;
+  const oneItemPerPage767 = 767;
+
+  if (window.innerWidth >= twoItemsPerPage1024) {
+    itemsPerPage = 3;
+    initialCarouselLoad();
+  }
+
+  if (
+    window.innerWidth <= twoItemsPerPage1024 &&
+    window.innerWidth >= oneItemPerPage767
+  ) {
+    itemsPerPage = 2;
+    initialCarouselLoad();
+  }
+
+  if (window.innerWidth <= oneItemPerPage767) {
+    itemsPerPage = 1;
+    initialCarouselLoad();
+  }
+
   function getRandomPetsArrPerPage() {
     const randomPetsArr = [];
     while (randomPetsArr.length < itemsPerPage) {
@@ -49,6 +70,8 @@ function carousel() {
   function initialCarouselLoad() {
     carouselInner.textContent = '';
 
+    carouselInnerArr = [];
+
     carouselInnerArr = [...getRandomPetsArrPerPage()];
 
     carouselInnerArr.forEach((item) => {
@@ -61,7 +84,7 @@ function carousel() {
   initialCarouselLoad();
 
   function showNextSlide() {
-    if (carouselInnerArr.length < 6) {
+    if (carouselInnerArr.length < itemsPerPage * 2) {
       carouselInnerArr.push(...getRandomPetsArrPerPage());
     }
 
@@ -126,7 +149,7 @@ function carousel() {
   }
 
   function showPrevSlide() {
-    if (carouselInnerArr.length < 6) {
+    if (carouselInnerArr.length < itemsPerPage * 2) {
       carouselInnerArr.unshift(...getRandomPetsArrPerPage());
     }
 
@@ -186,8 +209,41 @@ function carousel() {
     }
   }
 
+  function resizeCarouselInner() {
+    if (window.innerWidth >= twoItemsPerPage1024) {
+      itemsPerPage = 3;
+      isNextClickedTwice = false;
+      isPrevClickedTwice = false;
+      initialCarouselLoad();
+    }
+
+    if (
+      window.innerWidth <= twoItemsPerPage1024 &&
+      window.innerWidth >= oneItemPerPage767
+    ) {
+      itemsPerPage = 2;
+      isNextClickedTwice = false;
+      isPrevClickedTwice = false;
+      initialCarouselLoad();
+    }
+
+    if (window.innerWidth <= oneItemPerPage767) {
+      itemsPerPage = 1;
+      isNextClickedTwice = false;
+      isPrevClickedTwice = false;
+      initialCarouselLoad();
+    }
+  }
+
   carouselNextBtn.addEventListener('click', showNextSlide);
   carouselPrevBtn.addEventListener('click', showPrevSlide);
+
+  let resizeEndTimeout;
+
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeEndTimeout);
+    resizeEndTimeout = setTimeout(resizeCarouselInner, 100);
+  });
 }
 
 export default carousel;

@@ -2,6 +2,7 @@
 
 .our-friends {
   background: $color-light-l;
+  overflow-x: hidden;
   &__title {
     text-align: center;
     max-width: 400px;
@@ -13,7 +14,6 @@
     position: relative;
     padding-left: 60px;
     padding-right: 60px;
-    overflow-x: hidden;
   }
 
   &__controls {
@@ -37,12 +37,6 @@
     }
   }
 
-  .our-friends__control--prev {
-  }
-
-  .our-friends__control--next {
-  }
-
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -64,9 +58,6 @@
       gap: 40px;
       justify-content: center;
     }
-    .our-friends__item:nth-child(3) {
-      display: none;
-    }
   }
 
   @media (max-width: 767px) {
@@ -79,10 +70,6 @@
     &__inner {
       gap: 40px;
       justify-content: center;
-    }
-
-    .our-friends__item:nth-child(2) {
-      display: none;
     }
   }
 
