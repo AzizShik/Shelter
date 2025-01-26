@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    assetModuleFilename: 'assets/images/[name].[contenthash:8][ext]',
+    assetModuleFilename: 'assets/images/[name][ext]',
   },
 
   resolve: {
@@ -55,6 +55,15 @@ module.exports = {
         },
       },
 
+      loaderOptions: {
+        sources: [
+          {
+            tag: 'img', // <= specify the tag where should be parsed style
+            attributes: ['src', 'srcset'], // <= specify the style attribute
+          },
+        ],
+      },
+
       preprocessor: 'handlebars',
       // define handlebars options
       preprocessorOptions: {
@@ -72,6 +81,8 @@ module.exports = {
         // CSS output filename
         filename: 'css/[name].[contenthash:8].css',
       },
+
+      minify: mode !== 'development',
     }),
   ],
 
@@ -115,6 +126,13 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
+      // {
+      //   test: /\.json$/,
+      //   loader: 'asset/resource',
+      //   generator: {
+      //     filename: 'assets/json/[name][ext]',
+      //   },
+      // },
     ],
   },
 

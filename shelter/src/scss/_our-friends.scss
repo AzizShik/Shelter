@@ -13,12 +13,14 @@
     position: relative;
     padding-left: 60px;
     padding-right: 60px;
+    overflow-x: hidden;
   }
 
   &__controls {
     display: flex;
     justify-content: space-between;
     position: absolute;
+    z-index: 100;
     left: 0;
     width: 100%;
     height: 0;
@@ -47,6 +49,8 @@
     align-items: center;
     max-width: 990px;
     margin: 0 auto;
+
+    min-height: 435px;
   }
 
   &__btn-wrapper {
