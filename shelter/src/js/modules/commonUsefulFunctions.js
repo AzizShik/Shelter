@@ -25,6 +25,8 @@ function createCardElement(obj) {
     tag: 'img',
     classes: ['card__img'],
     img: `${name.toLowerCase()}`,
+    imgWidth: 270,
+    imgHeight: 270,
     loading: 'lazy',
   });
 
@@ -54,6 +56,8 @@ function createHTMLElement(options) {
     text = '',
     img = '',
     loading = '',
+    imgWidth = '',
+    imgHeight = '',
   } = options;
 
   const element = document.createElement(tag);
@@ -78,6 +82,9 @@ function createHTMLElement(options) {
     imgWebp.type = `image/webp`;
 
     element.src = `assets/images/pets-${img}.png`;
+    element.width = imgWidth;
+    element.height = imgWidth;
+
     element.alt = `Pets Img`;
 
     if (loading) {
