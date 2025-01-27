@@ -240,12 +240,6 @@ function carousel() {
 
   let resizeEndTimeout;
 
-  // const cardEl = document.querySelector('.card');
-
-  // setTimeout(() => {
-  //   cardEl.click();
-  // }, 100);
-
   window.addEventListener('resize', () => {
     clearTimeout(resizeEndTimeout);
     resizeEndTimeout = setTimeout(resizeCarouselInner, 100);

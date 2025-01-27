@@ -1,9 +1,7 @@
 import petsArr from '../data/pets.json';
 import { createHTMLElement } from './commonUsefulFunctions';
 
-console.log(petsArr);
-
-function modal() {
+function modal(basePathForSrc) {
   const bodyEl = document.body;
   const modalContainer = document.querySelector('.modal-container');
 
@@ -79,6 +77,7 @@ function modal() {
       img: `${petName.toLowerCase()}`,
       imgWidth: 500,
       imgHeight: 500,
+      baseForSrc: basePathForSrc,
     });
 
     imgBlockEl.append(imgEl);
@@ -181,6 +180,7 @@ function modal() {
   function showModal(obj) {
     const modalEl = createModal(obj);
     bodyEl.append(modalEl);
+    bodyEl.classList.add('lock');
 
     modalEl.animate([{ opacity: 0 }, { opacity: 1 }], {
       duration: animationDuration,
@@ -191,7 +191,6 @@ function modal() {
       const el = e.target;
 
       if (!el.closest('.modal__inner') || el.closest('.modal__close')) {
-        console.log(el);
         closeModal();
       }
     });
@@ -206,6 +205,7 @@ function modal() {
     });
 
     animation.addEventListener('finish', () => {
+      bodyEl.classList.remove('lock');
       bodyEl.removeChild(modalEl);
     });
   }

@@ -1,5 +1,5 @@
 import header from './modules/header.js';
-
-// const header = require('./modules/header.js');
+import modal from './modules/modal.js';
 
 header();
+modal('../');

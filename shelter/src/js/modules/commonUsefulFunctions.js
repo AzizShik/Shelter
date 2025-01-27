@@ -58,6 +58,7 @@ function createHTMLElement(options) {
     loading = '',
     imgWidth = '',
     imgHeight = '',
+    baseForSrc = '',
   } = options;
 
   const element = document.createElement(tag);
@@ -75,15 +76,15 @@ function createHTMLElement(options) {
     const imgWebp = document.createElement('source');
     const imgAvif = document.createElement('source');
 
-    imgAvif.srcset = `assets/images/pets-${img}.avif`;
+    imgAvif.srcset = `${baseForSrc}assets/images/pets-${img}.avif`;
     imgAvif.type = `image/avif`;
 
-    imgWebp.srcset = `assets/images/pets-${img}.webp`;
+    imgWebp.srcset = `${baseForSrc}assets/images/pets-${img}.webp`;
     imgWebp.type = `image/webp`;
 
-    element.src = `assets/images/pets-${img}.png`;
+    element.src = `${baseForSrc}assets/images/pets-${img}.png`;
     element.width = imgWidth;
-    element.height = imgWidth;
+    element.height = imgHeight;
 
     element.alt = `Pets Img`;
 
