@@ -80,8 +80,8 @@ function createCardElement(obj, imgRulesObj) {
     name
   } = obj;
   const {
-    baseForSrc,
-    loading
+    baseForSrc = '',
+    loading = ''
   } = imgRulesObj;
   const cardEl = createHTMLElement({
     tag: 'div',
@@ -164,6 +164,204 @@ function shuffleArr(arr) {
   return arr;
 }
 
+;// ./src/js/modules/carousel.js
+
+
+function carousel() {
+  const carouselNextBtn = document.querySelector('.our-friends__control--next');
+  const carouselPrevBtn = document.querySelector('.our-friends__control--prev');
+  const carouselInner = document.querySelector('.our-friends__inner');
+  const carouselAnimationDuration = 300;
+  let carouselInnerArr = [];
+  let itemsPerPage = 3;
+  let isNextClickedTwice = false;
+  let isPrevClickedTwice = false;
+  let isLocked = false;
+  const twoItemsPerPage1024 = 1024;
+  const oneItemPerPage767 = 767;
+  if (window.innerWidth >= twoItemsPerPage1024) {
+    itemsPerPage = 3;
+    initialCarouselLoad();
+  }
+  if (window.innerWidth <= twoItemsPerPage1024 && window.innerWidth >= oneItemPerPage767) {
+    itemsPerPage = 2;
+    initialCarouselLoad();
+  }
+  if (window.innerWidth <= oneItemPerPage767) {
+    itemsPerPage = 1;
+    initialCarouselLoad();
+  }
+  function getRandomPetsArrPerPage() {
+    const randomPetsArr = [];
+    while (randomPetsArr.length < itemsPerPage) {
+      const randomPet = pets_namespaceObject[getRandomNumber(0, pets_namespaceObject.length - 1)];
+      let isUnique;
+      if (randomPetsArr.length > 0) {
+        const randomPetUnique = !randomPetsArr.some(item => {
+          return item.name == randomPet.name;
+        });
+        const isCarouselArrUnique = !carouselInnerArr.some(item => {
+          return item.name == randomPet.name;
+        });
+        isUnique = randomPetUnique && isCarouselArrUnique;
+      } else {
+        isUnique = true;
+      }
+      const isCarouselArrUnique = !carouselInnerArr.some(item => {
+        return item.name == randomPet.name;
+      });
+      if (isUnique && isCarouselArrUnique) {
+        randomPetsArr.push(randomPet);
+      }
+    }
+    return randomPetsArr;
+  }
+  function initialCarouselLoad() {
+    carouselInner.textContent = '';
+    carouselInnerArr = [];
+    carouselInnerArr = [...getRandomPetsArrPerPage()];
+    carouselInnerArr.forEach(item => {
+      const cardEl = createCardElement(item, {
+        baseForSrc: '',
+        loading: 'lazy'
+      });
+      carouselInner.append(cardEl);
+    });
+  }
+  initialCarouselLoad();
+  function showNextSlide() {
+    if (carouselInnerArr.length < itemsPerPage * 2) {
+      carouselInnerArr.push(...getRandomPetsArrPerPage());
+    }
+    if (!isLocked) {
+      isLocked = true;
+      if (isNextClickedTwice) {
+        const length = carouselInnerArr.length;
+        const secondHalf = carouselInnerArr.slice(Math.ceil(length / 2), length);
+        carouselInnerArr = [];
+        carouselInnerArr.push(...secondHalf);
+        carouselInnerArr.push(...getRandomPetsArrPerPage());
+      }
+      isNextClickedTwice = true;
+      isPrevClickedTwice = false;
+      const length = carouselInnerArr.length;
+      const secondHalf = carouselInnerArr.slice(Math.ceil(length / 2), length);
+      const carouselAnimation = carouselInner.animate([{
+        transform: 'translateX(0%)',
+        opacity: '1'
+      }, {
+        transform: 'translateX(-20%)',
+        opacity: '0'
+      }], {
+        duration: carouselAnimationDuration,
+        fill: 'forwards'
+      });
+      carouselAnimation.addEventListener('finish', () => {
+        carouselInner.textContent = '';
+        secondHalf.forEach(item => {
+          const cardEl = createCardElement(item, {
+            baseForSrc: '',
+            loading: 'lazy'
+          });
+          carouselInner.append(cardEl);
+        });
+        const carouselAnimation = carouselInner.animate([{
+          transform: 'translateX(20%)',
+          opacity: '0'
+        }, {
+          transform: 'translateX(0%)',
+          opacity: '1'
+        }], {
+          duration: 300,
+          fill: 'forwards'
+        });
+      });
+      setTimeout(() => {
+        isLocked = false;
+      }, carouselAnimationDuration);
+    }
+  }
+  function showPrevSlide() {
+    if (carouselInnerArr.length < itemsPerPage * 2) {
+      carouselInnerArr.unshift(...getRandomPetsArrPerPage());
+    }
+    if (!isLocked) {
+      isLocked = true;
+      if (isPrevClickedTwice) {
+        const length = carouselInnerArr.length;
+        const firstHalf = carouselInnerArr.slice(0, Math.ceil(length / 2));
+        carouselInnerArr = [];
+        carouselInnerArr.push(...firstHalf);
+        carouselInnerArr.unshift(...getRandomPetsArrPerPage());
+      }
+      isNextClickedTwice = false;
+      isPrevClickedTwice = true;
+      const length = carouselInnerArr.length;
+      const firstHalf = carouselInnerArr.slice(0, Math.ceil(length / 2));
+      const carouselAnimation = carouselInner.animate([{
+        transform: 'translateX(0%)',
+        opacity: '1'
+      }, {
+        transform: 'translateX(20%)',
+        opacity: '0'
+      }], {
+        duration: carouselAnimationDuration,
+        fill: 'forwards'
+      });
+      carouselAnimation.addEventListener('finish', () => {
+        carouselInner.textContent = '';
+        firstHalf.forEach(item => {
+          const cardEl = createCardElement(item, {
+            baseForSrc: '',
+            loading: 'lazy'
+          });
+          carouselInner.append(cardEl);
+        });
+        const carouselAnimation = carouselInner.animate([{
+          transform: 'translateX(-20%)',
+          opacity: '0'
+        }, {
+          transform: 'translateX(0%)',
+          opacity: '1'
+        }], {
+          duration: 300,
+          fill: 'forwards'
+        });
+      });
+      setTimeout(() => {
+        isLocked = false;
+      }, carouselAnimationDuration);
+    }
+  }
+  function resizeCarouselInner() {
+    if (window.innerWidth >= twoItemsPerPage1024) {
+      itemsPerPage = 3;
+      isNextClickedTwice = false;
+      isPrevClickedTwice = false;
+      initialCarouselLoad();
+    }
+    if (window.innerWidth <= twoItemsPerPage1024 && window.innerWidth >= oneItemPerPage767) {
+      itemsPerPage = 2;
+      isNextClickedTwice = false;
+      isPrevClickedTwice = false;
+      initialCarouselLoad();
+    }
+    if (window.innerWidth <= oneItemPerPage767) {
+      itemsPerPage = 1;
+      isNextClickedTwice = false;
+      isPrevClickedTwice = false;
+      initialCarouselLoad();
+    }
+  }
+  carouselNextBtn.addEventListener('click', showNextSlide);
+  carouselPrevBtn.addEventListener('click', showPrevSlide);
+  let resizeEndTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeEndTimeout);
+    resizeEndTimeout = setTimeout(resizeCarouselInner, 100);
+  });
+}
+/* harmony default export */ const modules_carousel = (carousel);
 ;// ./src/js/modules/modal.js
 
 
@@ -343,121 +541,12 @@ function modal(basePathForSrc) {
   }
 }
 /* harmony default export */ const modules_modal = (modal);
-;// ./src/js/modules/tabs.js
-
-
-function tabs() {
-  const ourFriendsInnerEl = document.querySelector('.our-friends__inner');
-  const nextPageEl = document.querySelector('.our-friends__control--next');
-  const lastPageEl = document.querySelector('.our-friends__control--last');
-  const prevPageEl = document.querySelector('.our-friends__control--prev');
-  const firstPageEl = document.querySelector('.our-friends__control--first');
-  const currentPageEl = document.querySelector('.our-friends__control--current-page ');
-  const randomPetsArr = [];
-  let petsPerPage = 8;
-  let currentPage = 1;
-  while (randomPetsArr.length < 48) {
-    const firstHalf = pets_namespaceObject.slice(0, Math.floor(pets_namespaceObject.length / 2));
-    const secondHalf = pets_namespaceObject.slice(Math.floor(pets_namespaceObject.length / 2), pets_namespaceObject.length);
-    const firstRandomArr = shuffleArr(firstHalf);
-    const secondRandomArr = shuffleArr(secondHalf);
-    randomPetsArr.push(...firstRandomArr);
-    randomPetsArr.push(...secondRandomArr);
-  }
-  const width = window.innerWidth;
-  currentPage = 1;
-  if (width > 1280) {
-    petsPerPage = 8;
-    firstPageEl.click();
-  }
-  if (width < 1280 && width > 768) {
-    petsPerPage = 6;
-    firstPageEl.click();
-  }
-  if (width < 768) {
-    petsPerPage = 4;
-    firstPageEl.click();
-  }
-  function showPetsInner() {
-    ourFriendsInnerEl.textContent = '';
-    const to = currentPage * petsPerPage;
-    const from = to - petsPerPage;
-    const currentPageArr = randomPetsArr.slice(from, to);
-    currentPageArr.forEach(item => {
-      const petItem = createCardElement(item, {
-        baseForSrc: '../',
-        loading: ''
-      });
-      ourFriendsInnerEl.append(petItem);
-    });
-  }
-  showPetsInner();
-  function showNextPage() {
-    currentPage += 1;
-    const lastPageCount = randomPetsArr.length / petsPerPage;
-    if (lastPageCount >= currentPage) {
-      currentPageEl.textContent = currentPage;
-      firstPageEl.classList.remove('our-friends__control--disabled');
-      prevPageEl.classList.remove('our-friends__control--disabled');
-      showPetsInner();
-    }
-    if (currentPage * petsPerPage === randomPetsArr.length) {
-      nextPageEl.classList.add('our-friends__control--disabled');
-      lastPageEl.classList.add('our-friends__control--disabled');
-    }
-  }
-  function showPrevPage() {
-    currentPage -= 1;
-    if (currentPage >= 1) {
-      currentPageEl.textContent = currentPage;
-      nextPageEl.classList.remove('our-friends__control--disabled');
-      lastPageEl.classList.remove('our-friends__control--disabled');
-      showPetsInner();
-    }
-    if (currentPage === 1) {
-      prevPageEl.classList.add('our-friends__control--disabled');
-      firstPageEl.classList.add('our-friends__control--disabled');
-    }
-  }
-  nextPageEl.addEventListener('click', showNextPage);
-  lastPageEl.addEventListener('click', () => {
-    currentPage = randomPetsArr.length / petsPerPage - 1;
-    showNextPage();
-  });
-  prevPageEl.addEventListener('click', showPrevPage);
-  firstPageEl.addEventListener('click', () => {
-    currentPage = 2;
-    showPrevPage();
-  });
-  function resizeTabsInner() {
-    const width = window.innerWidth;
-    currentPage = 1;
-    if (width > 1280) {
-      petsPerPage = 8;
-      firstPageEl.click();
-    }
-    if (width < 1280 && width > 768) {
-      petsPerPage = 6;
-      firstPageEl.click();
-    }
-    if (width < 768) {
-      petsPerPage = 4;
-      firstPageEl.click();
-    }
-  }
-  let resizeEndTimeout;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeEndTimeout);
-    resizeEndTimeout = setTimeout(resizeTabsInner, 100);
-  });
-}
-/* harmony default export */ const modules_tabs = (tabs);
-;// ./src/js/pets.js
+;// ./src/js/index.js
 
 
 
 modules_header();
-modules_modal('../');
-modules_tabs();
+modules_carousel();
+modules_modal();
 /******/ })()
 ;
