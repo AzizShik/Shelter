@@ -1,23 +1,6 @@
-export function getAllImagesDinamically() {
-  function importAll(r) {
-    let images = {};
-    r.keys().map((item, index) => {
-      images[item.replace('./', '')] = r(item);
-    });
-    return images;
-  }
-
-  const images = importAll(
-    require.context('../../assets/images', false, /\.(png|jpe?g|svg)$/),
-  );
-
-  return images;
-}
-
-const allImages = getAllImagesDinamically();
-
-function createCardElement(obj) {
+function createCardElement(obj, imgRulesObj) {
   const { name } = obj;
+  const { baseForSrc, loading } = imgRulesObj;
 
   const cardEl = createHTMLElement({ tag: 'div', classes: ['card'] });
 
@@ -27,7 +10,8 @@ function createCardElement(obj) {
     img: `${name.toLowerCase()}`,
     imgWidth: 270,
     imgHeight: 270,
-    loading: 'lazy',
+    loading: loading,
+    baseForSrc: baseForSrc,
   });
 
   const titleEl = createHTMLElement({
@@ -106,4 +90,16 @@ function getRandomNumber(min, max) {
   return Math.floor(min + Math.random() * (max - min + 1));
 }
 
-export { createCardElement, getRandomNumber, createHTMLElement };
+function shuffleArr(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const random = Math.floor(Math.random() * (i + 1));
+    const temporary = arr[i];
+
+    arr[i] = arr[random];
+    arr[random] = temporary;
+  }
+
+  return arr;
+}
+
+export { createCardElement, getRandomNumber, createHTMLElement, shuffleArr };

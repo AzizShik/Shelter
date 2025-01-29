@@ -75,7 +75,10 @@ function carousel() {
     carouselInnerArr = [...getRandomPetsArrPerPage()];
 
     carouselInnerArr.forEach((item) => {
-      const cardEl = createCardElement(item);
+      const cardEl = createCardElement(item, {
+        baseForSrc: '',
+        loading: 'lazy',
+      });
 
       carouselInner.append(cardEl);
     });

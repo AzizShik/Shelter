@@ -5,6 +5,24 @@
 @use './header';
 @use './footer';
 
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
 .our-friends {
   padding-top: 200px;
   background: $color-light-l;
@@ -20,6 +38,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px 40px;
+    min-height: 630px;
   }
 
   &__controls {
