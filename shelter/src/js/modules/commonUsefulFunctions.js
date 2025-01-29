@@ -1,6 +1,4 @@
 function createCardElement(obj, imgRulesObj) {
-  console.log(imgRulesObj);
-
   const { name } = obj;
   const { baseForSrc = '', loading = '' } = imgRulesObj;
 
