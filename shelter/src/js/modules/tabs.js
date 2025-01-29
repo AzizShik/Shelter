@@ -16,9 +16,36 @@ function tabs() {
   let currentPage = 1;
 
   while (randomPetsArr.length < 48) {
-    const randomArr = shuffleArr(petsData);
+    const firstHalf = petsData.slice(0, Math.floor(petsData.length / 2));
+    const secondHalf = petsData.slice(
+      Math.floor(petsData.length / 2),
+      petsData.length,
+    );
 
-    randomPetsArr.push(...randomArr);
+    const firstRandomArr = shuffleArr(firstHalf);
+    const secondRandomArr = shuffleArr(secondHalf);
+
+    randomPetsArr.push(...firstRandomArr);
+    randomPetsArr.push(...secondRandomArr);
+  }
+
+  const width = window.innerWidth;
+
+  currentPage = 1;
+
+  if (width > 1280) {
+    petsPerPage = 8;
+    firstPageEl.click();
+  }
+
+  if (width < 1280 && width > 768) {
+    petsPerPage = 6;
+    firstPageEl.click();
+  }
+
+  if (width < 768) {
+    petsPerPage = 4;
+    firstPageEl.click();
   }
 
   function showPetsInner() {
@@ -64,8 +91,6 @@ function tabs() {
     currentPage -= 1;
 
     if (currentPage >= 1) {
-      console.log(currentPage);
-
       currentPageEl.textContent = currentPage;
 
       nextPageEl.classList.remove('our-friends__control--disabled');
@@ -96,9 +121,6 @@ function tabs() {
     const width = window.innerWidth;
 
     currentPage = 1;
-
-    console.log(width);
-    console.log(currentPage);
 
     if (width > 1280) {
       petsPerPage = 8;
