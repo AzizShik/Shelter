@@ -128,7 +128,10 @@ function carousel() {
         carouselInner.textContent = '';
 
         secondHalf.forEach((item) => {
-          const cardEl = createCardElement(item);
+          const cardEl = createCardElement(item, {
+            baseForSrc: '',
+            loading: 'lazy',
+          });
 
           carouselInner.append(cardEl);
         });
@@ -190,7 +193,10 @@ function carousel() {
         carouselInner.textContent = '';
 
         firstHalf.forEach((item) => {
-          const cardEl = createCardElement(item);
+          const cardEl = createCardElement(item, {
+            baseForSrc: '',
+            loading: 'lazy',
+          });
           carouselInner.append(cardEl);
         });
 

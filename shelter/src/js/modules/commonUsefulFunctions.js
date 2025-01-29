@@ -1,6 +1,8 @@
 function createCardElement(obj, imgRulesObj) {
+  console.log(imgRulesObj);
+
   const { name } = obj;
-  const { baseForSrc, loading } = imgRulesObj;
+  const { baseForSrc = '', loading = '' } = imgRulesObj;
 
   const cardEl = createHTMLElement({ tag: 'div', classes: ['card'] });
 
