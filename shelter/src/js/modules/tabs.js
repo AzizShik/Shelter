@@ -91,6 +91,37 @@ function tabs() {
     currentPage = 2;
     showPrevPage();
   });
+
+  function resizeTabsInner() {
+    const width = window.innerWidth;
+
+    currentPage = 1;
+
+    console.log(width);
+    console.log(currentPage);
+
+    if (width > 1280) {
+      petsPerPage = 8;
+      firstPageEl.click();
+    }
+
+    if (width < 1280 && width > 768) {
+      petsPerPage = 6;
+      firstPageEl.click();
+    }
+
+    if (width < 768) {
+      petsPerPage = 4;
+      firstPageEl.click();
+    }
+  }
+
+  let resizeEndTimeout;
+
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeEndTimeout);
+    resizeEndTimeout = setTimeout(resizeTabsInner, 100);
+  });
 }
 
 export default tabs;
