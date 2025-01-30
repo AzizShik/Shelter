@@ -1,0 +1,128 @@
+@use '../../node_modules/normalize.css/normalize.css';
+@use './fonts';
+@use './variables' as *;
+@use './common';
+@use './header';
+@use './footer';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+.our-friends {
+  padding-top: 200px;
+  background: $color-light-l;
+
+  &__title {
+    max-width: 420px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__inner {
+    margin-top: 59px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px 40px;
+    min-height: 630px;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 340px;
+    height: 52px;
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+
+  &__control {
+    width: 52px;
+    height: 52px;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    text-align: center;
+    color: $color-dark-3xl;
+  }
+
+  &__control--disabled {
+    border: 2px solid $color-dark-s;
+    color: $color-dark-s;
+    pointer-events: none;
+  }
+
+  &__control--current-page {
+    background: $color-primary;
+    pointer-events: none;
+  }
+
+  @media (max-width: 1280px) {
+    &__inner {
+      max-width: 890px;
+      margin-inline: auto;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__item:nth-child(7),
+    &__item:nth-child(8) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 991px) {
+    & {
+      padding-bottom: 75px;
+    }
+
+    &__inner {
+      max-width: 580px;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 29px;
+    }
+
+    &__controls {
+      margin-top: 41px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    & {
+      padding-top: 161px;
+      padding-bottom: 43px;
+    }
+
+    &__inner {
+      max-width: 270px;
+      grid-template-columns: repeat(1, 1fr);
+      margin-top: 42px;
+    }
+
+    &__item:nth-child(4),
+    &__item:nth-child(5),
+    &__item:nth-child(6) {
+      display: none;
+    }
+
+    &__title {
+      max-width: 370px;
+    }
+  }
+}

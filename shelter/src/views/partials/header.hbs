@@ -1,0 +1,33 @@
+<header class='header {{ headerPets }}'>
+  <div class='container'>
+    <div class='header__inner'>
+      <a href={{ logoHref }} class='header__logo'>
+        <span class='header__logo-title'>Cozy House</span>
+        <span class='header__logo-descr'>Shelter for pets in Boston</span>
+      </a>
+      <nav class='header__nav'>
+        <ul class='header__list'>
+          <li class='header__item'>
+            <a href={{ aboutHref }} class='header__link {{ aboutActive }}'>
+              About the shelter
+            </a>
+          </li>
+          <li class='header__item'>
+            <a href={{ petsHref }} class='header__link {{ petsActive }}'>Our pets</a>
+          </li>
+          <li class='header__item'>
+            <a href={{ helpHref }} class='header__link'>Help the shelter</a>
+          </li>
+          <li class='header__item'>
+            <a href='#footer' class='header__link'>Contacts</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="header__burger">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>

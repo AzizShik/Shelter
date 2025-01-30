@@ -1,0 +1,92 @@
+@use './variables' as *;
+@use './adaptive-func' as *;
+
+.about {
+  background: $color-light-xl;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__content {
+    max-width: 430px;
+    width: 100%;
+  }
+
+  &__title {
+    max-width: 380px;
+  }
+
+  &__descr {
+    font-family: $second-family;
+    font-size: 15px;
+    line-height: 160%;
+    color: $color-dark-xl;
+    margin-top: 25px;
+  }
+
+  &__img-block {
+    max-width: 300px;
+    width: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 991px) {
+    &__inner {
+      gap: 60px;
+    }
+
+    &__content {
+      flex-shrink: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__inner {
+      flex-direction: column-reverse;
+      gap: adaptive(42, 80, 320, 768);
+    }
+
+    &__title {
+      max-width: 320px;
+    }
+
+    &__descr {
+      margin-inline: auto;
+      margin-top: 24px;
+    }
+
+    &__img-block {
+      max-width: adaptive(260, 300, 320, 768);
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__title {
+      text-align: center;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    &__descr {
+      max-width: 270px;
+      margin-inline: auto;
+      text-align: justify;
+      margin-top: 23px;
+    }
+
+    &__img-block {
+      max-width: adaptive(260, 300, 320, 768);
+    }
+  }
+}

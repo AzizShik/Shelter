@@ -1,0 +1,143 @@
+@use './variables' as *;
+@use './adaptive-func' as *;
+
+.footer {
+  padding-top: 40px;
+  background: url('../assets/images/noise_transparent@2x.png'),
+    radial-gradient(
+      237.5% 111.8% at 0% 0%,
+      rgb(91, 72, 58) 0%,
+      rgb(38, 36, 37) 100%
+    );
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    margin-top: 16px;
+    &-title {
+      font-weight: 400;
+      font-size: 35px;
+      line-height: 130%;
+      letter-spacing: 0.06em;
+      color: $color-light-xl;
+    }
+
+    &-link {
+      margin-top: 40px;
+      font-size: 20px;
+      line-height: 115%;
+      letter-spacing: 0.06em;
+      color: $color-primary;
+
+      display: flex;
+      align-items: center;
+
+      gap: 20px;
+    }
+
+    &-icon {
+      align-self: center;
+    }
+  }
+
+  &__item:first-child {
+    max-width: 280px;
+    width: 100%;
+  }
+
+  &__item:nth-child(2) {
+    max-width: 320px;
+    width: 100%;
+  }
+
+  &__item:nth-child(2) {
+    .footer__item-link {
+      margin-top: 33px;
+    }
+  }
+
+  &__item:last-child {
+    margin-top: 0;
+    max-width: 300px;
+    width: 100%;
+  }
+
+  @media (max-width: 1100px) {
+    & {
+      padding-top: 14px;
+    }
+
+    &__inner {
+      gap: 64px 0px;
+      max-width: 640px;
+      flex-wrap: wrap;
+      margin: 0 auto;
+    }
+
+    &__item:nth-child(2) {
+      max-width: 302px;
+    }
+
+    &__item:last-child {
+      max-width: 100%;
+      width: 100%;
+      flex-grow: 1;
+    }
+
+    &__item-img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 660px) {
+    &__inner {
+      max-width: 300px;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__inner {
+      max-width: 300px;
+      gap: 21px;
+    }
+
+    &__inner .footer__item {
+      max-width: 300px;
+    }
+
+    &__item-title {
+      font-size: adaptive(25, 35, 320, 480);
+      text-align: center;
+    }
+
+    &__item-title {
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    &__item-link {
+      justify-content: center;
+    }
+
+    .footer__item:nth-child(2) .footer__item-link {
+      margin-top: 39px;
+      justify-content: flex-start;
+    }
+
+    &__item:nth-child(3) {
+      margin-top: 22px;
+    }
+
+    &__item-img {
+      max-width: adaptive(260, 300, 320, 480);
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

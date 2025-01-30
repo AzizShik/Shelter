@@ -1,0 +1,46 @@
+{
+  "name": "shelter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve --mode=development",
+    "build": "webpack build --mode=production --node-env=production",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AzizShik/Shelter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AzizShik/Shelter/issues"
+  },
+  "homepage": "https://github.com/AzizShik/Shelter#readme",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "handlebars": "^4.7.8",
+    "html-bundler-webpack-plugin": "^4.11.1",
+    "image-minimizer-webpack-plugin": "^4.1.3",
+    "loader-utils": "^2.0.4",
+    "postcss": "^8.4.49",
+    "postcss-loader": "^8.1.1",
+    "postcss-preset-env": "^10.1.3",
+    "sass": "^1.83.1",
+    "sass-loader": "^16.0.4",
+    "sharp": "^0.33.5",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "dependencies": {
+    "gh-pages": "^6.3.0",
+    "normalize.css": "^8.0.1"
+  }
+}

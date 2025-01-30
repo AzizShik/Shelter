@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="@icons/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="@icons/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="@styles/index.scss">
+  <script src="@scripts/index.js" defer></script>
+  <title>Shelter</title>
+</head>
+
+<body>
+
+  {{> header }}
+
+  <main class="main">
+    <section class="not-only">
+      <div class="container">
+        <div class="not-only__inner">
+          <div class="not-only__info">
+            <h1 class="not-only__title title title--main">Not only people need&nbsp;a house</h1>
+            <p class="not-only__descr">We offer to give a chance to a little and nice puppy with an extremely wide and
+              open heart. He or she will love you more than anybody else in the world, you will see!</p>
+            <a href="#ourFriends" class="not-only__btn btn">Make a friend</a>
+          </div>
+          <div class="not-only__img-block">
+            <picture>
+              <source srcset="../../assets/images/start-screen-puppy.png?as=avif" type="image/avif">
+              <source srcset="../../assets/images/start-screen-puppy.png?as=webp" type="image/webp">
+              <img src="../../assets/images/start-screen-puppy.png" class="not-only__img" width="698" height="728"
+                alt="Puppy">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="about__inner">
+          <div class="about__img-block">
+            <picture>
+              <source srcset="../../assets/images/about-pets.png?as=avif" type="image/avif">
+              <source srcset="../../assets/images/about-pets.png?as=webp" type="image/webp">
+              <img src="../../assets/images/about-pets.png" class="about__img" width="300" height="408" alt="About Pets"
+                loading="lazy">
+            </picture>
+          </div>
+          <div class="about__content">
+            <h2 class="about__title title">About the shelter “Cozy House”</h2>
+            <p class="about__descr">Currently we have 121 dogs and 342 cats on our hands and statistics show that only
+              20% of them will find a family. The others will continue to live with us and will be waiting for a lucky
+              chance to become dearly loved.</p>
+            <p class="about__descr">We feed our wards with the best food and make sure that they do not get sick, feel
+              comfortable (including psychologically) and well. We are supported by 87 volunteers and 28 employees of
+              various skill levels. About 12% of the animals are taken by the shelter staff. Taking care of the animals,
+              they become attached to the pets and would hardly ever leave them alone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="our-friends section" id="ourFriends">
+      <div class="container">
+        <h2 class="our-friends__title title">Our friends who are&nbsp;looking for a house</h2>
+        <div class="our-friends__wrapper">
+          <div class="our-friends__controls">
+            <button class="our-friends__control btn btn--control our-friends__control--prev">
+              <svg width="14" height="6" viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="#292929" />
+              </svg>
+            </button>
+            <button class="our-friends__control btn btn--control  our-friends__control--next">
+              <svg width="14" height="6" viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 4V2L11 2V0L14 3L11 6V4L0 4Z" fill="#292929" />
+              </svg>
+            </button>
+          </div>
+          <div class="our-friends__inner modal-container">
+            <div class="our-friends__item card">
+              <picture>
+                <source srcset="../../assets/images/pets-katrine.png?as=avif" type="image/avif">
+                <source srcset="../../assets/images/pets-katrine.png?as=webp" type="image/webp">
+                <img src="../../assets/images/pets-katrine.png" class="our-friends__item-img card__img" width="270"
+                  height="270" alt="Pet" loading="lazy">
+              </picture>
+              <h3 class="our-friends__item-title card__title ">Katrine</h3>
+              <button class="our-friends__item-btn card__btn btn btn--card">Learn more</button>
+            </div>
+            <div class="our-friends__item card">
+              <picture>
+                <source srcset="../../assets/images/pets-jennifer.png?as=avif" type="image/avif">
+                <source srcset="../../assets/images/pets-jennifer.png?as=webp" type="image/webp">
+                <img src="../../assets/images/pets-jennifer.png" class="our-friends__item-img card__img" width="270"
+                  height="270" alt="Pet" loading="lazy">
+              </picture>
+              <h3 class="our-friends__item-title card__title ">Jennifer</h3>
+              <button class="our-friends__item-btn card__btn btn btn--card">Learn more</button>
+            </div>
+            <div class="our-friends__item card">
+              <picture>
+                <source srcset="../../assets/images/pets-woody.png?as=avif" type="image/avif">
+                <source srcset="../../assets/images/pets-woody.png?as=webp" type="image/webp">
+                <img src="../../assets/images/pets-woody.png" class="our-friends__item-img card__img" width="270"
+                  height="270" alt="Pet" loading="lazy">
+              </picture>
+              <h3 class="our-friends__item-title card__title ">Woody</h3>
+              <button class="our-friends__item-btn card__btn btn btn--card">Learn more</button>
+            </div>
+          </div>
+        </div>
+        <div class="our-friends__btn-wrapper">
+          <a href="./pages/pets.html" class="our-friends__btn btn">Get to know the rest</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="help section" id="help">
+      <div class="container">
+        <h2 class="help__title title">
+          How you can help
+          our&nbsp;shelter
+        </h2>
+        <div class="help__inner">
+          <div class="help__item">
+            <img class="help__item-img" src="../../assets/icons/icon-pet-food.svg" alt="icon">
+            <h3 class="help__item-title">Pet food</h3>
+          </div>
+          <div class="help__item">
+            <img class="help__item-img" src="../../assets/icons/icon-transportation.svg" alt="icon">
+            <h3 class="help__item-title">Transportation</h3>
+          </div>
+          <div class="help__item">
+            <img class="help__item-img" src="../../assets/icons/icon-toys.svg" alt="icon">
+            <h3 class="help__item-title">Toys</h3>
+          </div>
+          <div class="help__item">
+            <img class="help__item-img" src="../../assets/icons/icon-bowls-and-cups.svg" alt="icon">
+            <h3 class="help__item-title">Bowls and cups</h3>
+          </div>
+          <div class="help__item">
+            <img class="help__item-img" src="../../assets/icons/icon-shampoos.svg" alt="icon">
+            <h3 class="help__item-title">Shampoos</h3>
+          </div>
+          <div class="help__item">
+            <img class="help__item-img" src="../../assets/icons/icon-vitamins.svg" alt="icon">
+            <h3 class="help__item-title">Vitamins</h3>
+          </div>
+          <div class="help__item">
+            <img class="help__item-img" src="../../assets/icons/icon-medicines.svg" alt="icon">
+            <h3 class="help__item-title">Medicines</h3>
+          </div>
+          <div class="help__item">
+            <img class="help__item-img" src="../../assets/icons/icon-collars-leashes.svg" alt="icon">
+            <h3 class="help__item-title">Collars / leashes</h3>
+          </div>
+          <div class="help__item">
+            <img class="help__item-img" src="../../assets/icons/icon-sleeping-area.svg" alt="icon">
+            <h3 class="help__item-title">Sleeping Area</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="in-addition section">
+      <div class="container">
+        <div class="in-addition__inner">
+          <div class="in-addition__img-block">
+            <picture>
+              <source srcset="../../assets/images/donation-dog.png?as=avif" type="image/avif">
+              <source srcset="../../assets/images/donation-dog.png?as=webp" type="image/webp">
+              <img src="../../assets/images/donation-dog.png" class="in-addition__img" width="505" height="261"
+                alt="Dog" loading="lazy">
+            </picture>
+          </div>
+          <div class="in-addition__info">
+            <h2 class="in-addition__title title">You can also make&nbsp;a&nbsp;donation</h2>
+            <h3 class="in-addition__subtitle">Name of the bank / Type of bank account</h3>
+            <button class="in-addition__btn btn">
+              <img src="../../assets/icons/credit-card.svg" alt="icon">
+              8380 2880 8028 8791 7435
+            </button>
+            <p class="in-addition__descr">
+              Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ipsum at libero
+              sagittis dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate. Interdum et malesuada fames
+              ac ante ipsum primis in faucibus.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  {{> footer}}
+
+
+</body>
+
+</html>

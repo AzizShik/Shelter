@@ -1,0 +1,251 @@
+@use './variables' as *;
+@use 'sass:color';
+
+.header {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  top: 0px;
+  height: 120px;
+  padding-top: 30px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    max-width: 190px;
+  }
+
+  &__logo-title {
+    display: inline-block;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    color: $color-primary;
+  }
+
+  &__logo-descr {
+    display: inline-block;
+    font-family: $second-family;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: $color-light-xl;
+    margin-top: 10px;
+    margin-left: 3px;
+
+    transition: all 0.3s ease;
+  }
+
+  &__nav {
+    max-width: 442px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: $second-family;
+    font-size: 15px;
+    line-height: 160%;
+  }
+
+  &__link {
+    display: inline-block;
+    color: $color-dark-s;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  &__link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    padding: 10px;
+    transform: translate(-10px, -10px);
+  }
+
+  &__link--active {
+    display: inline-block;
+    color: $color-light-s;
+    position: relative;
+    pointer-events: none;
+  }
+
+  &__link--active::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0px;
+    width: 100%;
+    height: 3px;
+    background: $color-primary;
+    color: $color-light-s;
+  }
+
+  &__burger {
+    width: 30px;
+    height: 22px;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    display: none;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+
+  &__burger-line {
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background: $color-primary;
+  }
+
+  @media (max-width: 767px) {
+    & {
+      overflow-x: hidden;
+      // display: none;
+    }
+
+    .header__nav {
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      max-width: 320px;
+      right: 0px;
+      top: 0;
+      background: $color-dark-3xl;
+    }
+
+    .header__list {
+      max-width: 243px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-direction: column;
+
+      margin-bottom: 90px;
+    }
+
+    .header__link {
+      font-family: $second-family;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 160%;
+      color: $color-light-s;
+    }
+
+    &__burger {
+      display: flex;
+    }
+  }
+
+  @media (max-width: 480px) {
+    & {
+      padding-left: 10px;
+      padding-right: 16px;
+    }
+  }
+
+  @media (hover: hover) {
+    &__logo:hover .header__logo-descr {
+      color: $color-primary;
+    }
+
+    &__link:hover {
+      color: $color-light-s;
+    }
+
+    &__link:active {
+      color: color.scale($color-light-s, $lightness: -15%);
+    }
+  }
+}
+
+.header--pets {
+  background: $color-light-xl;
+  .header__logo-title {
+    color: $color-dark-l;
+  }
+
+  .header__logo-descr {
+    color: $color-dark-3xl;
+  }
+
+  .header__link {
+    color: $color-dark-l;
+  }
+
+  .header__link--active {
+    color: $color-dark-3xl;
+  }
+
+  .header__burger-line {
+    background: #000;
+  }
+
+  @media (hover: hover) {
+    .header__link:hover {
+      color: $color-dark-3xl;
+    }
+
+    .header__link:active {
+      color: color.scale($color-dark-3xl, $lightness: 15%);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .header--active {
+    height: calc(100% + 90px);
+    width: 100%;
+    background: rgba(41, 41, 41, 0.6);
+
+    .header__nav {
+      display: flex;
+    }
+  }
+
+  .header__burger--active {
+    transform: rotate(90deg);
+    margin-right: -4px;
+    margin-top: -12px;
+  }
+
+  .header--pets.header--active {
+    background: rgba(255, 255, 255, 0.6);
+
+    .header__nav {
+      background: $color-light-xl;
+      color: #000;
+    }
+
+    .header__link {
+      font-family: $second-family;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 160%;
+      // color: $color-light;
+    }
+  }
+}

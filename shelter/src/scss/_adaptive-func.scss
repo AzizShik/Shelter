@@ -1,0 +1,14 @@
+@use 'sass:math';
+
+@function adaptive($min, $max, $minView, $maxView) {
+  @return clamp(
+    $min * 1px,
+    calc(
+      (
+        $min * 1px + ($max - $min) *
+          ((100vw - ($minView * 1px)) / ($maxView - $minView))
+      )
+    ),
+    $max * 1px
+  );
+}
