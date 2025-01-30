@@ -19,7 +19,7 @@ Shelter is a project where you need to create a website consisting of two pages,
 
 In this project, I leverage Webpack to automatically generate and optimize images in modern formats like WebP and AVIF, ensuring faster load times and improved performance while maintaining high visual quality.
 
-## Deploy
+## Deploy:
 https://azizshik.github.io/Shelter/index.html
 
 
