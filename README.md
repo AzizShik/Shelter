@@ -15,13 +15,13 @@ Shelter is a project where you need to create a website consisting of two pages,
 
 * Using JavaScript to implement the functionality specified in the task
 
-## Webp and Avif
-
-In this project, I leverage Webpack to automatically generate and optimize images in modern formats like WebP and AVIF, ensuring faster load times and improved performance while maintaining high visual quality.
 
 ## Deploy:
 https://azizshik.github.io/Shelter/index.html
 
+## Webp and Avif
+
+In this project, I leverage Webpack to automatically generate and optimize images in modern formats like WebP and AVIF, ensuring faster load times and improved performance while maintaining high visual quality.
 
 ## Screenshots:
 
